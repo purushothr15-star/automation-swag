@@ -18,6 +18,10 @@ public class LogIn extends BaseTest {
     @FindBy(id="login-button")
     public WebElement loginBtn;
 
+    @FindBy(xpath="//div[@class='app_logo']")
+    public WebElement titleName;
+
+
     //initiallize page objects
     public LogIn(WebDriver driver){
         this.driver = driver;

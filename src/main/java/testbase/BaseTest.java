@@ -20,6 +20,7 @@ public class BaseTest extends DriverFactory{
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
+
    public void tearDown(){
        driver.quit();
    }

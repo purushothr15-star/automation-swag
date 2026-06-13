@@ -25,7 +25,7 @@ public class DriverFactory {
         return driver;
     }
 
-    public  WebDriver getDriver(){
+    public WebDriver getDriver(){
         return driver;
     }
 }
