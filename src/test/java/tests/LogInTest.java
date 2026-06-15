@@ -11,19 +11,19 @@ import testbase.BaseTest;
 import utilities.ReusableMethods;
 
 public class LogInTest extends BaseTest {
-    ReusableMethods rm = new ReusableMethods();
+    ReusableMethods rm;
     LogIn login;
     @BeforeMethod
     public void setUp(){
-        initBrowser();
+        //initBrowser();
         login = new LogIn(driver);
+        rm  = new ReusableMethods(driver);
+        System.out.println("LogIntest driver ->" + driver);
     }
 
     @Test
     public void logIn(){
-        rm.enterText(login.userName, ConfigReader.getProperty("username"));
-        rm.enterText(login.passWord, ConfigReader.getProperty("password"));
-        rm.clickOnElement(login.loginBtn);
+        login.logInMethod();
         String title = ConfigReader.getProperty("titleName");
         rm.waitForElementToBeDisplayed(login.titleName, 3);
         String actualTitle = login.titleName.getText();

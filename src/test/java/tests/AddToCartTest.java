@@ -10,20 +10,28 @@ import testbase.BaseTest;
 
 public class AddToCartTest extends BaseTest {
 
-    LogInTest logT = new LogInTest();
 
     public static AddToCart atc;
     public static LogIn logI;
     @BeforeMethod
     public void setUp(){
-        initBrowser();
-         atc= new AddToCart(driver);
         logI = new LogIn(driver);
+        atc = new AddToCart(driver);
+        System.out.println("Test Driver = " + driver);
     }
 
     @Test
     public void addingToCart(){
-        logT.logIn();
+        logI.logInMethod();
+
         atc.addToCart();
+    }
+    @Test
+    public void removeFromCart(){
+        logI.logInMethod();
+        atc.addToCart();
+        atc.removeFrmCrt();
+
+
     }
 }

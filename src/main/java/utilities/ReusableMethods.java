@@ -4,25 +4,37 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import testbase.BaseTest;
+//import testbase.BaseTest;
 
 import java.time.Duration;
 
-public class ReusableMethods extends BaseTest {
+import static java.sql.DriverManager.getDriver;
 
-    private WebDriver driver = getDriver();
+public class ReusableMethods {
+
+    private WebDriver driver;
+    public ReusableMethods(WebDriver driver){
+        this.driver = driver;
+    }
     public void enterText(WebElement element, String text){
         element.sendKeys(text);
     }
 
     public void clickOnElement(WebElement element){
-        element.click();
+        boolean removeDisplayed= waitForElementToBeDisplayed(element, 3);
+        if(removeDisplayed){
+            element.click();
+        }
     }
 
 
-    public void waitForElementToBeDisplayed(WebElement element , int time){
+    public boolean waitForElementToBeDisplayed(WebElement element , int time){
+        boolean displayed=false;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         wait.until(ExpectedConditions.visibilityOf(element));
-
+        if(element.isDisplayed()){
+            displayed = true;
+        }
+        return displayed;
     }
 }
