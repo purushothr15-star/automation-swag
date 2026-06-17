@@ -18,11 +18,11 @@ public class LogInTest extends BaseTest {
         //initBrowser();
         login = new LogIn(driver);
         rm  = new ReusableMethods(driver);
-        System.out.println("LogIntest driver ->" + driver);
+        //System.out.println("LogIntest driver ->" + driver);
     }
 
     @Test
-    public void logIn(){
+    public void logInTest(){
         login.logInMethod();
         String title = ConfigReader.getProperty("titleName");
         rm.waitForElementToBeDisplayed(login.titleName, 3);

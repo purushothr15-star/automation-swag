@@ -21,7 +21,6 @@ public class BaseTest extends DriverFactory{
         driver.manage().window().maximize();
         driver.get(ConfigReader.getProperty("url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        System.out.println("BaseTest Driver ->" + this.driver);
     }
 
     @AfterMethod

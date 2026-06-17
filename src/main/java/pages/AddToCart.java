@@ -1,5 +1,6 @@
 package pages;
 
+import com.aventstack.extentreports.util.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,13 +11,16 @@ import utilities.ReusableMethods;
 public class AddToCart{
 
     protected WebDriver driver;
-
+    ReusableMethods ru;
+    HomePage home;
     public AddToCart(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
-        System.out.println("Add To Cart driver ->"+driver);
+        ru= new ReusableMethods(driver);
+        home = new HomePage(driver);
+        //System.out.println("Add To Cart driver ->"+driver);
     }
-    ReusableMethods ru = new ReusableMethods(driver);
+
     @FindBy(id="add-to-cart-sauce-labs-backpack")
     WebElement backPackaddToCart;
 
@@ -34,6 +38,12 @@ public class AddToCart{
 
     @FindBy(id="remove-sauce-labs-backpack")
     WebElement removeFrmCart;
+
+    @FindBy(id="continue-shopping")
+    WebElement continueShopping;
+
+
+
 
 
 
@@ -54,12 +64,26 @@ public class AddToCart{
     }
     public void removeFrmCrt(){
         ru.clickOnElement(removeFrmCart);
-        if(!removeFrmCart.isDisplayed()){
+        boolean removeCrtDisplayed = ru.waitForElementToBeDisplayed(removeFrmCart, 2);
+        if(!removeCrtDisplayed){
             System.out.println(backPackName+" Removed from cart as expected");
         }
         else{
             System.out.println(backPackName+" Not removed from cart as expected");
         }
+    }
+
+    public boolean continueShoping(){
+
+        continueShopping.click();
+        boolean prdctHdrDispl = home.productsHeader.isDisplayed();
+        if(prdctHdrDispl){
+            System.out.println("System navigated to home page as expected");
+        }
+        else{
+            System.out.println("System did not navigate to home page as expected");
+        }
+        return prdctHdrDispl;
     }
 
 

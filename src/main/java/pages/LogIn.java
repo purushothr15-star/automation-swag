@@ -25,11 +25,14 @@ public class LogIn{
     public WebElement titleName;
 
 
+
+
+
     //initiallize page objects
     public LogIn(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
-        System.out.println("LogInPage driver ->" + driver);
+        //System.out.println("LogInPage driver ->" + driver);
     }
     public void logInMethod(){
         rm.enterText(userName, ConfigReader.getProperty("username"));
