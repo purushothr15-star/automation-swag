@@ -3,7 +3,6 @@
 <suite name="SwagLabsSuite">
 
     <test name="Login Tests">
-
         <classes>
             <class name="tests.LogInTest"/>
             <class name="tests.AddToCartTest"/>

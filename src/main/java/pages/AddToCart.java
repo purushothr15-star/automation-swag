@@ -76,7 +76,7 @@ public class AddToCart{
     public boolean continueShoping(){
 
         continueShopping.click();
-        boolean prdctHdrDispl = home.productsHeader.isDisplayed();
+        boolean prdctHdrDispl = ru.waitForElementToBeDisplayed(home.productsHeader, 3);
         if(prdctHdrDispl){
             System.out.println("System navigated to home page as expected");
         }
