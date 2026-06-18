@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class DriverFactory {
-   private WebDriver driver;
+   private  static WebDriver driver;
   // public static Properties prop;
 
-    public WebDriver initializeDriver(){
+    public  static WebDriver initializeDriver(){
         String browserName = ConfigReader.getProperty("browser");
         if(browserName.equalsIgnoreCase("chrome")){
             driver = new ChromeDriver();
@@ -25,7 +25,7 @@ public class DriverFactory {
         return driver;
     }
 
-    public WebDriver getDriver(){
+    public  static WebDriver getDriver(){
         return driver;
     }
 }

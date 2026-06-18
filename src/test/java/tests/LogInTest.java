@@ -22,7 +22,7 @@ public class LogInTest extends BaseTest {
         login = new LogIn(driver);
         rm  = new ReusableMethods(driver);
         excelUtil = new ExcelUtil();
-        //System.out.println("LogIntest driver ->" + driver);
+        System.out.println("LogIntest driver ->" + driver);
     }
 
     @DataProvider
