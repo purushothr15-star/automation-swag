@@ -3,6 +3,7 @@ package tests;
 import com.aventstack.extentreports.Status;
 import config.ConfigReader;
 import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +22,7 @@ public class LogInTest extends BaseTest {
     LogIn login;
     static ExcelUtil excelUtil;
     ReportLogger log;
+    Logger logr = Logger.getLogger(LogInTest.class);
     @BeforeMethod
     public void setUp(){
         //initBrowser();
@@ -44,6 +46,7 @@ public class LogInTest extends BaseTest {
     public void logInDiffUsersTest(String uName){
 
         login.logInMethod(uName);
+        logr.info("logged in and captured in log using log4j");
     }
 
     @Test
