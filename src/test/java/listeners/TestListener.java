@@ -28,7 +28,7 @@ public class TestListener  implements ITestListener {
         System.out.println("LISTENER STARTED");
         ReportLogger.test = extent.createTest(result.getMethod().getMethodName());
 
-    }git
+    }
 
     @Override
     public void onTestSuccess(ITestResult result) {
