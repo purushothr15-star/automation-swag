@@ -15,7 +15,7 @@ public class LogIn{
 
 
     protected WebDriver driver;
-    ReusableMethods rm = new ReusableMethods(driver);
+    ReusableMethods rm ;
     ExcelUtil excelUtil;
     ReportLogger rl;
 
@@ -41,6 +41,7 @@ public class LogIn{
         PageFactory.initElements(this.driver, this);
         excelUtil = new ExcelUtil();
         rl = new ReportLogger(driver);
+        rm= new ReusableMethods(driver);
         System.out.println("LogInPage driver ->" + driver);
     }
     public void logInMethod(){

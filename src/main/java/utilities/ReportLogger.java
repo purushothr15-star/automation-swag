@@ -30,12 +30,11 @@ public class ReportLogger {
             try{
                 File file = new File(path);
                 if(status==status.PASS) {
-                    test.pass(logText).addScreenCaptureFromPath(file.getAbsolutePath());
-
+                    test.pass(logText+ "-"+info).addScreenCaptureFromPath(file.getAbsolutePath());
                 }
                 else if(status==status.FAIL){
                     softAssert.assertTrue(false);
-                    test.fail(logText).addScreenCaptureFromPath(file.getAbsolutePath());
+                    test.fail(logText+"-"+info).addScreenCaptureFromPath(file.getAbsolutePath());
                     softAssert.assertAll();
                 }
             }

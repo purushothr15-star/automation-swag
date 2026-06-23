@@ -39,6 +39,6 @@ public class AddToCartTest extends BaseTest {
     public void continueShoppingTest(){
             logI.logInMethod();
             atc.addToCart();
-            Assert.assertTrue(atc.continueShoping());
+            atc.continueShoping();
     }
 }

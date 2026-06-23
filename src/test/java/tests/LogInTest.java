@@ -1,5 +1,6 @@
 package tests;
 
+import com.aventstack.extentreports.Status;
 import config.ConfigReader;
 import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 import org.testng.Assert;
@@ -10,19 +11,24 @@ import org.testng.annotations.Test;
 import pages.LogIn;
 import testbase.BaseTest;
 import utilities.ExcelUtil;
+import utilities.ReportLogger;
 import utilities.ReusableMethods;
+
+import static java.lang.Math.log;
 
 public class LogInTest extends BaseTest {
     ReusableMethods rm;
     LogIn login;
     static ExcelUtil excelUtil;
+    ReportLogger log;
     @BeforeMethod
     public void setUp(){
         //initBrowser();
         login = new LogIn(driver);
         rm  = new ReusableMethods(driver);
         excelUtil = new ExcelUtil();
-        System.out.println("LogIntest driver ->" + driver);
+        log = new ReportLogger(driver);
+        //System.out.println("LogIntest driver ->" + driver);
     }
 
     @DataProvider
@@ -36,6 +42,7 @@ public class LogInTest extends BaseTest {
 
     @Test(dataProvider= "getData")
     public void logInDiffUsersTest(String uName){
+
         login.logInMethod(uName);
     }
 
@@ -47,15 +54,19 @@ public class LogInTest extends BaseTest {
         String actualTitle = login.titleName.getText();
         Assert.assertEquals(actualTitle, title);
         if(actualTitle.equalsIgnoreCase(title)){
+            log.log("Home Page Title", "Title displayed as expected"+actualTitle, Status.PASS);
             System.out.println("title displayed as expected");
         }
         else {
+            log.log("Home Page Title", "Title not displayed as expected"+actualTitle, Status.FAIL);
             System.out.println("title is not displayed as expected");
         }
     }
     @AfterMethod
     public void closeBrowser(){
+        System.out.println(driver);
         tearDown();
+
     }
 
 }

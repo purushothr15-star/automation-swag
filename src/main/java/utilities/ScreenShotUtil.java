@@ -13,14 +13,17 @@ import java.util.Date;
 
 public class ScreenShotUtil {
 
-    DriverFactory driverFactory = new DriverFactory();
+    static DriverFactory driverFactory = new DriverFactory();
 
-    private WebDriver driver;
-    public ScreenShotUtil(){
-        this.driver =  driverFactory.getDriver();
+    //private static WebDriver driver = driverFactory.getDriver();
+
+    /*public ScreenShotUtil(){
+
         System.out.println("Screen shot driver->"+driver);
-    }
-    public String getScreenShot(String screenShotName){
+    }*/
+    public static String   getScreenShot(String screenShotName){
+        WebDriver driver = DriverFactory.getDriver();
+        System.out.println(driver);
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         String path = "screenshots/"+screenShotName+"-"+timeStamp+".png";
         File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);

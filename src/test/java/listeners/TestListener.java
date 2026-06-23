@@ -12,18 +12,20 @@ import testbase.BaseTest;
 import utilities.ReportLogger;
 import utilities.ScreenShotUtil;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class TestListener implements ITestListener {
+public class TestListener  implements ITestListener {
 
    // ExtentTest test;
 
 
     ExtentReports extent = ExtentReportUtil.getInstance();
-    ScreenShotUtil su = new ScreenShotUtil();
+    //ScreenShotUtil su = new ScreenShotUtil();
     @Override
     public void onTestStart(ITestResult result) {
+        System.out.println("LISTENER STARTED");
         ReportLogger.test = extent.createTest(result.getMethod().getMethodName());
 
     }
@@ -38,14 +40,15 @@ public class TestListener implements ITestListener {
 
         ReportLogger.test.fail(result.getThrowable());
 
-        String path = su.getScreenShot(result.getMethod().getMethodName());
+        /*String path = ScreenShotUtil.getScreenShot(result.getMethod().getMethodName());
 
         try{
-            ReportLogger.test.addScreenCaptureFromPath(path);
+            File file = new File(path);
+            ReportLogger.test.addScreenCaptureFromPath(file.getAbsolutePath());
         }
         catch(Exception e){
             e.printStackTrace();
-        }
+        }*/
 
     }
 
