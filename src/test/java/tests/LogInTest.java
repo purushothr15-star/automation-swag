@@ -48,12 +48,12 @@ public class LogInTest extends BaseTest {
     public void logInDiffUsersTest(String uName){
 
         login.logInMethod(uName);
-        
+
     }
 
     @Test
     public void logInTest(){
-        System.out.println("ngRock");
+        //System.out.println("ngRock");
         login.logInMethod();
         String title = ConfigReader.getProperty("titleName");
         rm.waitForElementToBeDisplayed(login.titleName, 3);
