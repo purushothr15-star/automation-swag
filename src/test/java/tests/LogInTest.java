@@ -24,7 +24,7 @@ public class LogInTest extends BaseTest {
     LogIn login;
     static ExcelUtil excelUtil;
     ReportLogger log;
-    Logger logr = Logger.
+    //Logger logr = Logger.
     @BeforeMethod
     public void setUp(){
         //initBrowser();
@@ -48,7 +48,7 @@ public class LogInTest extends BaseTest {
     public void logInDiffUsersTest(String uName){
 
         login.logInMethod(uName);
-        logr.
+        
     }
 
     @Test
