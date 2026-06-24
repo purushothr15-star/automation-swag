@@ -53,7 +53,7 @@ public class LogInTest extends BaseTest {
 
     @Test
     public void logInTest(){
-        //System.out.println();
+        System.out.println("ngRock");
         login.logInMethod();
         String title = ConfigReader.getProperty("titleName");
         rm.waitForElementToBeDisplayed(login.titleName, 3);
