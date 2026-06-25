@@ -57,6 +57,7 @@ public class LogIn{
         rm.enterText(passWord, ConfigReader.getProperty("password"));
         rm.clickOnElement(loginBtn);
         rl.log("Home Page", "User logged in successfully"+ConfigReader.getProperty("username"), Status.PASS);
+        System.out.println("changed the assertion to pass");
     }
 
 
