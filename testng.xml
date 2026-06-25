@@ -15,6 +15,6 @@
     </test>
     <listeners>
         <listener class-name="listeners.TestListener"/>
-        <listener class-name="analyzer.MyTranformer"/>
+        <listener class-name="analyzer.MyTransformer"/>
     </listeners>
 </suite>
