@@ -56,8 +56,7 @@ public class LogIn{
         rm.enterText(userName, uName);
         rm.enterText(passWord, ConfigReader.getProperty("password"));
         rm.clickOnElement(loginBtn);
-        rl.log("Home Page", "User logged in successfully"+ConfigReader.getProperty("username"), Status.FAIL);
-
+        rl.log("Home Page", "User logged in successfully"+ConfigReader.getProperty("username"), Status.PASS);
     }
 
 
