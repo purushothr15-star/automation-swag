@@ -43,7 +43,7 @@ public class LogInTest extends BaseTest {
 
             return data;
     }
-
+    //retryAnalyzer = analyzer.RetryAnalyzer.class
     @Test(dataProvider= "getData")
     public void logInDiffUsersTest(String uName){
 
