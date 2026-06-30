@@ -16,7 +16,7 @@ public class BaseTest extends DriverFactory{
 
     @BeforeMethod
     public void initBrowser() {
-        ConfigReader.loadProperties();
+        //ConfigReader.loadProperties();
         driver = initializeDriver();
         driver.manage().window().maximize();
         driver.get(ConfigReader.getProperty("url"));

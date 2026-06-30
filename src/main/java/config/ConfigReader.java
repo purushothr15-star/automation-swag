@@ -9,18 +9,17 @@ public class ConfigReader {
 
     private static Properties prop;
 
-    public static void loadProperties(){
-        try{
-            prop = new Properties();
-            FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"src\\main\\java\\config\\config.properties");
-            prop.load(fis);
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+
+    static {
+            try {
+                prop = new Properties();
+                FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\java\\config\\config.properties");
+                prop.load(fis);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 
     public static String getProperty(String key){
