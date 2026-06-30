@@ -12,7 +12,7 @@ public class ConfigReader {
     public static void loadProperties(){
         try{
             prop = new Properties();
-            FileInputStream fis = new FileInputStream("C:\\Users\\aishw\\PurushothProjects\\swag-labs-automation\\src\\main\\java\\config\\config.properties");
+            FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"src\\main\\java\\config\\config.properties");
             prop.load(fis);
         }
         catch(FileNotFoundException e){

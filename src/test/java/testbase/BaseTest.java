@@ -25,10 +25,7 @@ public class BaseTest extends DriverFactory{
 
     @AfterMethod
    public void tearDown(){
-        System.out.println(driver);
-        if(driver!=null) {
-            driver.quit();
-        }
+        DriverFactory.quitDriver();
    }
 
 
