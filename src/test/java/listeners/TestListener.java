@@ -26,19 +26,19 @@ public class TestListener  implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         System.out.println("LISTENER STARTED");
-        ReportLogger.test = extent.createTest(result.getMethod().getMethodName());
+        ReportLogger.test.set(extent.createTest(result.getMethod().getMethodName()));
 
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        ReportLogger.test.pass("Test passed");
+        ReportLogger.test.get().pass("Test passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
 
-        ReportLogger.test.fail(result.getThrowable());
+        ReportLogger.test.get().fail(result.getThrowable());
 
         /*String path = ScreenShotUtil.getScreenShot(result.getMethod().getMethodName());
 

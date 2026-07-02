@@ -15,7 +15,7 @@ import static com.aventstack.extentreports.Status.PASS;
 public class ReportLogger {
 
     public WebDriver driver;
-    public static ExtentTest test;
+    public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     ScreenShotUtil su ;
     SoftAssert softAssert;
 
@@ -30,11 +30,11 @@ public class ReportLogger {
             try{
                 File file = new File(path);
                 if(status==status.PASS) {
-                    test.pass(logText+ "-"+info).addScreenCaptureFromPath(path);
+                    test.get().pass(logText+ "-"+info).addScreenCaptureFromPath(path);
                 }
                 else if(status==status.FAIL){
                     softAssert.assertTrue(false);
-                    test.fail(logText+"-"+info).addScreenCaptureFromPath(path);
+                    test.get().fail(logText+"-"+info).addScreenCaptureFromPath(path);
                     softAssert.assertAll();
                 }
             }
