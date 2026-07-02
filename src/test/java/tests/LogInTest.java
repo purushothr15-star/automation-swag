@@ -32,6 +32,15 @@ public class LogInTest extends BaseTest {
         rm  = new ReusableMethods(driver);
         excelUtil = new ExcelUtil();
         log = new ReportLogger(driver);
+        System.out.println(
+                Thread.currentThread().getName()
+                        + " Test Object = "
+                        + this);
+
+        System.out.println(
+                Thread.currentThread().getName()
+                        + " Login Object = "
+                        + login);
         //System.out.println("LogIntest driver ->" + driver);
     }
 
@@ -68,11 +77,11 @@ public class LogInTest extends BaseTest {
             System.out.println("title is not displayed as expected");
         }
     }
-    @AfterMethod
+    /*@AfterMethod
     public void closeBrowser(){
         System.out.println(driver);
         tearDown();
 
-    }
+    }*/
 
 }

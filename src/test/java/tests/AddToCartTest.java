@@ -20,11 +20,9 @@ public class AddToCartTest extends BaseTest {
         atc = new AddToCart(driver);
         //System.out.println("Test Driver = " + driver);
     }
-
     @Test
     public void addingToCartTest(){
         logI.logInMethod();
-
         atc.addToCart();
     }
     @Test
@@ -34,7 +32,6 @@ public class AddToCartTest extends BaseTest {
         atc.removeFrmCrt();
       //  Assert.assertTrue(false);
     }
-
     @Test
     public void continueShoppingTest(){
             logI.logInMethod();
